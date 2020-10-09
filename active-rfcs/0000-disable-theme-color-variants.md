@@ -13,7 +13,7 @@ Disable automatically filling themes with missing light/darken variants. Make it
 
 Add a new property to the Theme service interface:
 
-```js
+```ts
 interface Theme {
   variants = false
 }
@@ -26,7 +26,7 @@ import Vuetify from 'vuetify/lib'
 
 // v3.0 would require the user to enable theme variants
 export default new Vuetify({
-	theme: { variants: true },
+  theme: { variants: true },
 })
 ```
 
@@ -38,16 +38,16 @@ Variants on theme colors are a niche use-case and rarely used beyond manually de
 import Vuetify from 'vuetify/lib'
 
 export default new Vuetify({
-	theme: {
-		themes: {
-			light: {
-				primary: {
-					base: 'blue',
-					darken1: 'darkblue',
-				},
-			},
-		},
-	},
+  theme: {
+    themes: {
+      light: {
+        primary: {
+          base: 'blue',
+          darken1: 'darkblue',
+        },
+      },
+    },
+  },
 })
 ```
 
@@ -72,8 +72,8 @@ N/A
 import Vuetify from 'vuetify/lib'
 
 export default new Vuetify({
-	theme: { variants: true },
-	...
+  theme: { variants: true },
+  ...
 })
 ```
 
