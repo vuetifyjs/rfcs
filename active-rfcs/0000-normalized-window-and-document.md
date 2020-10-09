@@ -14,28 +14,26 @@ There are a number of places within the framework that make generalized calls to
 ```js
 // src/util/globals.ts
 
-function checkForEventListenerPassiveSupport (supported = false): boolean {
-	try {
-		const opts = Object.defineProperty({}, 'passive', {
+function checkForEventListenerPassiveSupport(supported = false): boolean {
+  try {
+    const opts = Object.defineProperty({}, 'passive', {
       get: () => (supported = true),
     })
-
     window.addEventListener('check', opts, opts)
     window.removeEventListener('check', opts, opts)
-	} catch (e) {
-		console.warn('The current browser does not support the passive option.')
-		console.warn(e)
-	}
-
-	return supported
+  } catch (e) {
+    console.warn('The current browser does not support the passive option.')
+    console.warn(e)
+  }
+  return supported
 }
 
 const IN_BROWSER = typeof window !== 'undefined'
 const PASSIVE_SUPPORTED = IN_BROWSER ? checkForEventListenerPassiveSupport() : false
 
 export {
-	IN_BROWSER, 
-	PASSIVE_SUPPORTED,
+  IN_BROWSER,
+  PASSIVE_SUPPORTED,
 }
 ```
 
