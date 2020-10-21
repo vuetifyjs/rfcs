@@ -1,37 +1,31 @@
 # Overview
 
-- Start Date: 2019-12-23
+- Start Date: 2020-10-19
 - Target Major Version: v3.0
 - Reference Issues: N/A
-- Implementation PR: (leave this empty)
+- Implementation PR: [#12471](https://github.com/vuetifyjs/vuetify/pull/12471)
 
 ## Summary
 
-Rename the application service to layout.
+More to follow...
 
 ## Basic example
 
-Rename the application service to layout.
-
-```js
-// v2.2
-$vuetify.application.top
-
-// v3.0
-$vuetify.layout.top
-```
+More to follow...
 
 ## Motivation
 
-The application service only deals with layouts. Should have a name more representative of what it does. There are very few use cases in which a user would want to reference the application service.
+The application service remains one of the oldest pieces of code in the framework and has remained largely untouched for years. In its original form, the application service *did* support multiple **app** components, but was removed to resolve [#9797](https://github.com/vuetifyjs/vuetify/commit/59a6bbf8cf02a8e1565db6b268741c7c655c0176).
+
+This RFC aims to normalize the layout process for participating components as well as expanding the possible layout combinations the user can create.
 
 ## Detailed design
 
-N/A
+More to follow...
 
 ## Drawbacks
 
-- Requires the user to change all references of `$vuetify.application` to `$vuetify.layout`.
+More to follow...
 
 ## Alternatives
 
@@ -39,11 +33,11 @@ What other designs have been considered? What is the impact of not doing this?
 
 ## Adoption strategy
 
-- Change all references of `$vuetify.application` to `$vuetify.layout`.
+More to follow...
 
 ## Unresolved questions
 
-N/A
+More to follow...
 
 ---
 
