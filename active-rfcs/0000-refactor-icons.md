@@ -123,10 +123,6 @@ There are two big breaking changes for VIcon
 <v-icon type="material-icons" icon="home"/>
 <v-icon type="mdi" icon="home"/>
 <v-icon type="fa4" icon="home"/>
-
-// Using an SVG icon path directly could be done like this
-// if an `svg` icon type has been defined as in the usage example above
-<v-icon type="svg" icon="M7,10L12,15L17,10H7Z" />
 ```
 
 ### SVG
