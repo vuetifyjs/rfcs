@@ -186,7 +186,7 @@ Using a custom icon component has become slightly easier in v2.4 with the `compo
 
 ## Adoption Strategy
 
-- If default slot is not preserved, then migration work could possibly be minimized with a codemod that tries to translate `<v-icon>mdi-home</v-icon>` to `<v-icon type="mdi" icon="home"/>` etc.
+- If default slot is not preserved, then migration work could possibly be minimized with a codemod that tries to translate `<v-icon>mdi-home</v-icon>` to `<v-icon set="mdi" icon="home"/>` etc.
 
 ## Unresolved Questions
 
