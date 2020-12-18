@@ -40,26 +40,26 @@ interface VuetifyIcons {
 
 interface IconProps {
   tag: string
-  type: string
+  set: string
   icon: VuetifyIcon
   disabled?: Boolean
   class?: unknown[]
   style?: Record<string, unknown> | null
 }
 
-interface IconPreset {
+interface IconSet {
   component: (props: IconProps) => Component
   values?: Partial<VuetifyIcons>
 }
 
 interface IconOptions {
-  [key: string]: IconPreset
+  [key: string]: IconSet
 }
 ```
 
-Each icon preset requires a component function used to render the icon. There will be several default types included in V3, but a custom component can of course be used as well.
+Each icon set requires a component function used to render the icon. There will be several default types included in V3, but a custom component can of course be used as well.
 
-The included `mdi` icon preset would look something like this.
+The included `mdi` icon set would look something like this.
 
 ```js
 import { VClassIcon } from 'vuetify'
@@ -78,8 +78,10 @@ Usage would look like this
 // V2.4
 
 new Vuetify({
-  values: {
-    mycustomicon: 'mdi-foo',
+  icons: {
+    values: {
+      mycustomicon: 'mdi-foo',
+    },
   },
 })
 
@@ -110,7 +112,7 @@ createVuetify({
 
 There are two big breaking changes for VIcon
 
-1. It no longer tries to infer what icon set an icon belongs to based on its name.
+1. It no longer tries to infer what icon set an icon belongs to based on its name. There is now a `set` prop that matches a `IconSet` from the vuetify configuration.
 2. It no longer uses the default slot for the icon name. Instead there is an `icon` prop. (This might not be very popular? Could possibly support default slot but make it deprecated and removed in V4?)
 
 ```html
@@ -120,9 +122,9 @@ There are two big breaking changes for VIcon
 <v-icon>fa-home</v-icon>
 
 // V3
-<v-icon type="material-icons" icon="home"/>
-<v-icon type="mdi" icon="home"/>
-<v-icon type="fa4" icon="home"/>
+<v-icon set="material-icons" icon="home"/>
+<v-icon set="mdi" icon="home"/>
+<v-icon set="fa4" icon="home"/>
 ```
 
 ### SVG
@@ -167,8 +169,8 @@ createVuetify({
 ```
 
 ```html
-<v-icon type="foo" icon="$close" />
-<v-icon type="foo" :icon="HomeIcon" />
+<v-icon set="foo" icon="$close" />
+<v-icon set="foo" :icon="HomeIcon" />
 ```
 
 ## Motivation
