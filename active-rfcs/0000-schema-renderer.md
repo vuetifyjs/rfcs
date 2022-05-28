@@ -93,17 +93,12 @@ The component accepts a children property (an array of JSON descriptive properti
 
 Why is this change necessary? What does it improve within the framework?
 
-- implementation cost, both in term of code size and complexity
-    a new component called VSchemaRenderer
-    a set of new types for VSchemaRenderer
-    VSchemaRenderer needs to call js "eval" function
-- whether the proposed feature can be implemented in userland
-    yes, but this will natively support component rendering with built in component lazy loading capabilities
-- integration of this feature with other existing and planned features
-    togather this component with SchemaBuilder makes a UI Editor for Vuetify
-    togather this component with JsonEditor makes a UI Editor for custom schemed JSON files
-- cost of migrating existing Vuetify applications (is it a breaking change?)
-    does not break anything
+- A new component called VSchemaRenderer
+- A set of new types for VSchemaRenderer
+- The VSchemaRenderer needs to call js "eval" function
+- Togather this component with SchemaBuilder makes a UI Editor for Vuetify
+- Togather this component with JsonEditor makes a UI Editor for custom schemed JSON files
+- Does not break anything
 
 ## Alternatives
 
