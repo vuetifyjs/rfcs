@@ -8,7 +8,7 @@
 ## Summary
 
 Render vuetify elements tree with a JSON description.
-With dynamic property binding between components, event propogating,
+With dynamic property binding between components, event propagating,
 and dynamic property interpolation like v-for, v-model, v-show
 
 ## Basic example
