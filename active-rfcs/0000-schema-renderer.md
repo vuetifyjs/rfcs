@@ -7,7 +7,7 @@
 
 ## Summary
 
-Render vuetify components with a JSON structure.
+Render vuetify elements tree with a JSON description.
 
 ## Basic example
 
