@@ -8,18 +8,20 @@
 ## Summary
 
 Render vuetify elements tree with a JSON description.
+With dynamic property binding between components, event propogating,
+and dynamic property interpolation like v-for, v-model, v-show
 
 ## Basic example
 
 ```js
 <temaplte>
-    <v-schema-renderer :children="children" />
+    <v-schema-renderer :children="schema" />
 </template>
 
 <script>
 export default {
     data: vm => ({
-        children: [
+        schema: [
             {
                 tag: 'VCard',
                 props: {
@@ -27,9 +29,49 @@ export default {
                 },
                 children: [
                     {
-                        tag: 'VCardTitle'
-                        children: 'Hello World'
+                        tag: 'VCardTitle',
+                        children: '$.decorat("Hi {0}", $.bindings.firstname)',
                     },
+                    {
+                        tag: 'VCardBody',
+                        children: [
+                            {
+                                tag: 'VTextField',
+                                'v-model': '$.bindings.firstname',
+                                props: {
+                                    label: 'Enter your name'
+                                },
+                            },
+                            {
+                                tag: 'VTextField',
+                                'v-model': '$.bindings.count',
+                                props: {
+                                    label: 'Enter a number between 1 and 10'
+                                    type: 'number',
+                                },
+                            },
+                        ],
+                    }
+                    {
+                        tag: 'VCardBody',
+                        children: [
+                            {
+                                tag: 'VList',
+                                children: [
+                                    {
+                                        tag: 'VListItem',
+                                        'v-for': '$.bindings.count',
+                                        children: [
+                                            {
+                                                tag: 'VListItemTitle',
+                                                children: '$.decorat("List item {0}", $.args[0])'
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                        ],
+                    }
                 ]
             }
         ]
@@ -53,10 +95,13 @@ Why is this change necessary? What does it improve within the framework?
 
 - implementation cost, both in term of code size and complexity
     a new component called VSchemaRenderer
+    a set of new types for VSchemaRenderer
+    VSchemaRenderer needs to call js "eval" function
 - whether the proposed feature can be implemented in userland
-    yes, but this will natively support component rendering with built in component loading capabilities
+    yes, but this will natively support component rendering with built in component lazy loading capabilities
 - integration of this feature with other existing and planned features
-    togather this component with SchemaBuilder makes a UI Builder for Vuetify
+    togather this component with SchemaBuilder makes a UI Editor for Vuetify
+    togather this component with JsonEditor makes a UI Editor for custom schemed JSON files
 - cost of migrating existing Vuetify applications (is it a breaking change?)
     does not break anything
 
